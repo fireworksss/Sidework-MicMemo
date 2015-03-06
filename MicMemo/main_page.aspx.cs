@@ -17,7 +17,7 @@ namespace MicMemo
     {
         public List<String> myPubs;
 
-        static RedisClient redisClient = new RedisClient("42.159.197.190",8080);
+        static RedisClient redisClient = new RedisClient("42.159.198.42",8080);
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack){

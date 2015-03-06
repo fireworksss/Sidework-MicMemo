@@ -68,9 +68,9 @@
            </div>
            <div class="web_reg_submit clearfix">
                <div class="submit_box">
-                   <asp:HyperLink ID="reg_btn_ic"  href="/reg_result" OnClick="nSubmit_Click" runat="server">
-                        <span>立即注册</span>
-                   </asp:HyperLink>
+                   <asp:Button ID="reg_btn_ic"  OnClick="cSubmit_Click" runat="server" Text="立即注册">
+                        
+                   </asp:Button>
                </div>
 
            </div>

@@ -14,12 +14,12 @@ namespace MicMemo
         String reg_password_ini;
         String reg_password_cor;
         String reg_account_pwd;
-        static RedisClient redisClient = new RedisClient("42.159.197.190", 8080);
+        static RedisClient redisClient = new RedisClient("42.159.198.42", 8080);
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void nSubmit_Click(object sender, EventArgs e)
+        protected void cSubmit_Click(object sender, EventArgs e)
         {
             if(IsPageRefreshed)
             { }
