@@ -62,11 +62,14 @@
                                 </div>
                                 <div class="web_recieve_detail">
                                     <div class="web_user_name,name_string">
-                                        <a class="web_user_link,name_string">DefaultUser</a>
+                                        <a class="web_user_link,name_string">
+                                            <asp:Label ID="hot_user_name" runat="server"/>
+                                        </a>
                                     </div>
                                     <div class="recieve_text">
-                                        <asp:Label ID="hot_message" runat="server" />
                                         <% hot_message.Text = myPub; %>
+                                        <asp:Label ID="hot_message" runat="server" />
+                                        
                                     </div>
                                     <div class="recieve_media"></div>
                                 </div>
@@ -92,7 +95,9 @@
                                     </div>
                                     <div class="my_internal_info">
                                         <div class="my_name_board">
-                                            <a class="my_name S_txt1" href="/null">DefaultUser</a>
+                                            <a class="my_name S_txt1" href="/null">
+                                                <asp:Label ID="tag_user_name" runat="server"/>
+                                            </a>
                                         </div>
                                         <ul class="my_status clearfix W_f18">
                                             <li class="S_line1">

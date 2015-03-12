@@ -71,6 +71,14 @@
                    <asp:Button ID="reg_btn_ic"  OnClick="cSubmit_Click" runat="server" Text="立即注册">
                         
                    </asp:Button>
+<%--                   <asp:HyperLink ID="reg_btn_box" NavigateUrl="/main_page.aspx?userid=<%=reg_account_name%>" runat="server">
+                       <i class="reg_btc_ic"/>
+                       Register
+                   </asp:HyperLink>--%>
+                   <a class="reg_btn_box" href="/do_register.aspx?userid=<%# register_account.Text %>&pwdini=<%= password_ini.Text %>&pwdcor=<%= password_cor.Text %>">
+                       <i class="reg_btc_ic"/>
+                       Register
+                   </a>
                </div>
 
            </div>

@@ -17,7 +17,12 @@ namespace MicMemo
     {
         public List<String> myPubs;
 
-        static RedisClient redisClient = new RedisClient("42.159.198.42",8080);
+        static RedisClient redisClient = new RedisClient("42.159.193.100",8080);
+        String userId = null;
+        String userInfo = null;
+        String userPub = null;
+        String localUrl = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack){
@@ -26,12 +31,19 @@ namespace MicMemo
             }else{
 
             }
-            myPubs = redisClient.GetAllItemsFromList("userpub");
+            localUrl = HttpContext.Current.Request.Url.PathAndQuery;
+            String userQuery = HttpContext.Current.Request.Url.Query;
+            userId = userQuery.Substring(8, userQuery.Length-8);
+            //userId = "trhyfgh";
+            userInfo = userId + "info";
+            userPub = userId + "pub";
+            hot_user_name.Text = tag_user_name.Text = userId;
+            myPubs = redisClient.GetAllItemsFromList(userPub);
             if (myPubs.Count == 0)
             {
 
-                redisClient.EnqueueItemOnList("userpub", "I am now start to use it.");
-                myPubs = redisClient.GetAllItemsFromList("userpub");
+                redisClient.EnqueueItemOnList(userPub, "I am now start to use it.");
+                myPubs = redisClient.GetAllItemsFromList(userPub);
 
             }   
 
@@ -45,11 +57,11 @@ namespace MicMemo
             { }
             else
             {
-                redisClient.EnqueueItemOnList("userpub", input_Message);
+                redisClient.EnqueueItemOnList(userPub, input_Message);
                // redisClient.LPush("userpub", getbyte"hello");
                 
                 //for (int i = 0; i < redisClient.GetListCount("userpub"); i++) { }
-                myPubs = redisClient.GetAllItemsFromList("userpub");
+                myPubs = redisClient.GetAllItemsFromList(userPub);
                 this.nMessage.Text = null;
                 //foreach(String myPub in myPubs){
             }
@@ -60,12 +72,12 @@ namespace MicMemo
 
         }
 
-        private String buildDetails(String web_message)
-        {
-            StringBuilder result = null;
-            result.Append("<div class=\"web_recieve\">");
-            return result.ToString();
-        }
+        //private String buildDetails(String web_message)
+        //{
+        //    StringBuilder result = null;
+        //    result.Append("<div class=\"web_recieve\">");
+        //    return result.ToString();
+        //}
         
     }
 }
