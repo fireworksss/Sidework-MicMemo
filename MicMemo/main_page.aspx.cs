@@ -17,7 +17,7 @@ namespace MicMemo
     {
         public List<String> myPubs;
 
-        static RedisClient redisClient = new RedisClient("42.159.193.100",8080);
+        static RedisClient redisClient = new RedisClient("fairspark.cloudapp.net", 6379);
         String userId = null;
         String userInfo = null;
         String userPub = null;

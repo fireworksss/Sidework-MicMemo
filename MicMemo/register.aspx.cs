@@ -15,7 +15,7 @@ namespace MicMemo
         public String reg_password_cor;
         public String reg_account_pwd;
         
-        static RedisClient redisClient = new RedisClient("42.159.193.100", 8080);
+        static RedisClient redisClient = new RedisClient("fairspark.cloudapp.net", 6379);
         protected void Page_Load(object sender, EventArgs e)
         {
 
